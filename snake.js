@@ -1,11 +1,15 @@
 import { getInputDirection } from "./input.js";
-export const SNAKE_SPEED = 3;
+export let SNAKE_SPEED = 1;
+const speedInput = document.getElementById("speedInput");
+speedInput === null || speedInput === void 0 ? void 0 : speedInput.addEventListener("change", () => {
+    SNAKE_SPEED = parseInt(speedInput === null || speedInput === void 0 ? void 0 : speedInput.value);
+    console.log(SNAKE_SPEED);
+});
 let newSegments = 0;
 const snakeBody = [{ x: 10, y: 11 }];
 export const updateSnake = () => {
     addSegments();
     const inputDirections = getInputDirection();
-    console.log(inputDirections);
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = Object.assign({}, snakeBody[i]);
     }
@@ -13,7 +17,7 @@ export const updateSnake = () => {
     snakeBody[0].y += inputDirections.y;
 };
 export const drawSnake = (gameBoard) => {
-    snakeBody.forEach((segment, idx) => {
+    snakeBody.forEach((segment) => {
         const snakeElement = document.createElement("div");
         snakeElement.style.gridRowStart = segment.y.toString();
         snakeElement.style.gridColumnStart = segment.x.toString();

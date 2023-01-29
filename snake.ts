@@ -3,7 +3,13 @@ import { Position } from "./interface";
 
 
 
-export const SNAKE_SPEED = 3;
+export let SNAKE_SPEED = 1;
+
+const speedInput = document.getElementById("speedInput") as HTMLInputElement | null;
+speedInput?.addEventListener("change", () => {
+    SNAKE_SPEED = parseInt(speedInput?.value)
+    console.log(SNAKE_SPEED)
+})
 let newSegments = 0;
 const snakeBody: Position[] = [{ x: 10, y: 11 }];
 
@@ -11,7 +17,6 @@ const snakeBody: Position[] = [{ x: 10, y: 11 }];
 export const updateSnake = () => {
     addSegments();
     const inputDirections = getInputDirection();
-    console.log(inputDirections)
     for (let i = snakeBody.length - 2; i >= 0; i--) {
         snakeBody[i + 1] = { ...snakeBody[i] }
     }
@@ -20,7 +25,7 @@ export const updateSnake = () => {
 }
 
 export const drawSnake = (gameBoard: any) => {
-    snakeBody.forEach((segment, idx) => {
+    snakeBody.forEach((segment) => {
         const snakeElement = document.createElement("div");
         snakeElement.style.gridRowStart = segment.y.toString();
         snakeElement.style.gridColumnStart = segment.x.toString();
@@ -59,4 +64,5 @@ export const getSnakeHead = () => {
 
 export function snakeIntersection() {
     return onSnake(snakeBody[0], { ignoreHead: true })
-  }
+}
+
