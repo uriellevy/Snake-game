@@ -1,6 +1,6 @@
 import { drawFood, updateFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
-import { SNAKE_SPEED, updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
+import { snakeSpeed, updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
 
 declare var window: Window;
 
@@ -18,10 +18,10 @@ const main = (currentTime: number) => {
 
     window.requestAnimationFrame(main)
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
-    if (secondsSinceLastRender < 1 / SNAKE_SPEED) return
+    if (secondsSinceLastRender < 1 / snakeSpeed) return
 
 
-    lastRenderTime = currentTime
+    lastRenderTime = currentTime;
 
     update();
     draw();
@@ -43,5 +43,5 @@ const draw = () => {
 }
 
 function checkDeath() {
-    gameOver = outsideGrid(getSnakeHead()) || snakeIntersection()
+    gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
 }

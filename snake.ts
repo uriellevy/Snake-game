@@ -3,13 +3,21 @@ import { Position } from "./interface";
 
 
 
-export let SNAKE_SPEED = 1;
+export let snakeSpeed = 1;
+export let expansionRate = 1;
 
-const speedInput = document.getElementById("speedInput") as HTMLInputElement | null;
+const speedInput = document.querySelector(".speedInput") as HTMLInputElement | null;
 speedInput?.addEventListener("change", () => {
-    SNAKE_SPEED = parseInt(speedInput?.value)
-    console.log(SNAKE_SPEED)
+    snakeSpeed = parseInt(speedInput?.value)
+    console.log(snakeSpeed)
 })
+
+const expansionInput = document.querySelector(".expansionRateInput") as HTMLInputElement | null;
+expansionInput?.addEventListener("change", () => {
+    expansionRate = parseInt(expansionInput?.value)
+    console.log(expansionRate)
+})
+
 let newSegments = 0;
 const snakeBody: Position[] = [{ x: 10, y: 11 }];
 
