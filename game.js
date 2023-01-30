@@ -28,7 +28,7 @@ const update = () => {
 };
 const draw = () => {
     if (gameBoard)
-        gameBoard.innerHTML = "";
+        gameBoard.innerHTML = ""; //cleanup before draw new snake/food
     drawSnake(gameBoard);
     drawFood(gameBoard);
 };

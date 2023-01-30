@@ -54,6 +54,7 @@ body {
 .scoreWrapper {
     display: flex;
     font-size: 20px;
+    color: #f4f4f4;
 }
 
 #score {

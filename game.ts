@@ -22,8 +22,6 @@ const main = (currentTime: number) => {
     if (secondsSinceLastRender < 1 / snakeSpeed) return;
     lastRenderTime = currentTime;
     
-    
-
     update();
     draw();
 }
@@ -37,10 +35,9 @@ const update = () => {
 }
 
 const draw = () => {
-    if (gameBoard) gameBoard.innerHTML = "";
+    if (gameBoard) gameBoard.innerHTML = ""; //cleanup before draw new snake/food
     drawSnake(gameBoard);
     drawFood(gameBoard);
-
 }
 
 function checkDeath() {
