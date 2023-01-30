@@ -1,6 +1,7 @@
 import { drawFood, updateFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
-import { snakeSpeed, updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
+import { updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
+import { snakeSpeed } from "./input.js";
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById("game-board");

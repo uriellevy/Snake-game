@@ -1,6 +1,7 @@
 import { drawFood, updateFood } from "./food.js";
 import { outsideGrid } from "./grid.js";
-import { snakeSpeed, updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
+import { updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
+import { snakeSpeed } from "./input.js";
 
 declare var window: Window;
 
@@ -13,15 +14,15 @@ const main = (currentTime: number) => {
         if (confirm('You lost. Press ok to restart.')) {
             window.location = '/';
         }
-        return
+        return;
     }
-
-    window.requestAnimationFrame(main)
-    const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000
-    if (secondsSinceLastRender < 1 / snakeSpeed) return
-
-
+    
+    window.requestAnimationFrame(main);
+    const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
+    if (secondsSinceLastRender < 1 / snakeSpeed) return;
     lastRenderTime = currentTime;
+    
+    
 
     update();
     draw();
