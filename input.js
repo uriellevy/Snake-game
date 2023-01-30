@@ -1,3 +1,5 @@
+export let snakeSpeed = 1;
+export let expansionRate = 1;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = { x: 0, y: 0 };
 window.addEventListener('keydown', (e) => {
@@ -29,8 +31,6 @@ export function getInputDirection() {
     lastInputDirection = inputDirection;
     return inputDirection;
 }
-export let snakeSpeed = 1;
-export let expansionRate = 1;
 const speedInput = document.querySelector(".speedInput");
 speedInput === null || speedInput === void 0 ? void 0 : speedInput.addEventListener("change", () => {
     snakeSpeed = parseInt(speedInput === null || speedInput === void 0 ? void 0 : speedInput.value);

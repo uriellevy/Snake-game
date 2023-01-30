@@ -3,11 +3,15 @@ import { randomGridPosition } from './grid.js';
 import { expansionRate } from './input.js';
 
 let food = getRandomFoodPosition();
+let score: number = 0;
+const scoreText = document.getElementById("score");
 
 export function updateFood() {
     if (onSnake(food)) {
         expandSnake(expansionRate);
         food = getRandomFoodPosition();
+        score++;
+        if(scoreText) scoreText.innerHTML = score.toString();
     }
 }
 

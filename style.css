@@ -48,4 +48,14 @@ body {
 .speed .speedInput, .expansionRate .expansionRateInput {
     background-color: #f4f4f4d7;
     border: none;
+    outline: none;
+}
+
+.scoreWrapper {
+    display: flex;
+    font-size: 20px;
+}
+
+#score {
+    margin-left: 3px;
 }

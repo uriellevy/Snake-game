@@ -1,3 +1,5 @@
+export let snakeSpeed = 1;
+export let expansionRate = 1;
 let inputDirection = { x: 0, y: 0 };
 let lastInputDirection = { x: 0, y: 0 };
 
@@ -27,8 +29,6 @@ export function getInputDirection() {
     return inputDirection
 }
 
-export let snakeSpeed = 1;
-export let expansionRate = 1;
 
 
 const speedInput = document.querySelector(".speedInput") as HTMLInputElement | null;
