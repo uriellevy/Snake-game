@@ -1,7 +1,9 @@
-import { drawFood, updateFood } from "./food.js";
-import { outsideGrid } from "./grid.js";
-import { updateSnake, drawSnake, getSnakeHead, snakeIntersection } from "./snake.js";
-import { snakeSpeed } from "./input.js";
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const food_js_1 = require("./food.js");
+const grid_js_1 = require("./grid.js");
+const snake_js_1 = require("./snake.js");
+const input_js_1 = require("./input.js");
 let lastRenderTime = 0;
 let gameOver = false;
 const gameBoard = document.getElementById("game-board");
@@ -14,7 +16,7 @@ const main = (currentTime) => {
     }
     window.requestAnimationFrame(main);
     const secondsSinceLastRender = (currentTime - lastRenderTime) / 1000;
-    if (secondsSinceLastRender < 1 / snakeSpeed)
+    if (secondsSinceLastRender < 1 / input_js_1.snakeSpeed)
         return;
     lastRenderTime = currentTime;
     update();
@@ -22,16 +24,16 @@ const main = (currentTime) => {
 };
 window.requestAnimationFrame(main);
 const update = () => {
-    updateSnake();
-    updateFood();
+    (0, snake_js_1.updateSnake)();
+    (0, food_js_1.updateFood)();
     checkDeath();
 };
 const draw = () => {
     if (gameBoard)
         gameBoard.innerHTML = ""; //cleanup before draw new snake/food
-    drawSnake(gameBoard);
-    drawFood(gameBoard);
+    (0, snake_js_1.drawSnake)(gameBoard);
+    (0, food_js_1.drawFood)(gameBoard);
 };
 function checkDeath() {
-    gameOver = outsideGrid(getSnakeHead()) || snakeIntersection();
+    gameOver = (0, grid_js_1.outsideGrid)((0, snake_js_1.getSnakeHead)()) || (0, snake_js_1.snakeIntersection)();
 }
